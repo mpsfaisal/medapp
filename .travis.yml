@@ -18,3 +18,4 @@ install:
 script:
     - pipenv run pip list
     - pipenv run python -m django --version
+    - pipenv run python manage.py runserver
