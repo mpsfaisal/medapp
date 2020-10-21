@@ -14,7 +14,7 @@ install:
     - pipenv install
     - pip install -q Django==$DJANGO_VERSION
     - python setup.py -q install
-	
+
 script:
     - pipenv run pip list
     - pipenv run python -m django --version
