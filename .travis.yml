@@ -13,6 +13,5 @@ install:
     - pipenv install
 
 script:
-    - pipenv run python manage.py runserver
     - pipenv run pip list
 
