@@ -1,0 +1,18 @@
+language: python
+
+python:
+    - "3.6"
+
+env:
+    - SECRET_KEY="TEST1"
+
+services:
+    - mysql
+
+install:
+    - pipenv install
+
+script:
+    - pipenv run pip list
+
+

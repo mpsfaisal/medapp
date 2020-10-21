@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+  <TITLE>UM-Patient Details</TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</HEAD>
+
+<BODY class="w3-container w3-auto" >
+
+<div class="w3-header w3-teal w3-center w3-large">
+   <h2>UYIR-MEI Theraphy Centre</h2>
+</div>
+
+<div class="w3-card-4">
+
+<div class="w3-container w3-green">
+  <h2>Patient Details</h2>
+</div>
+
+<form class="w3-container" action="/registor/" method="post" target="_blank">
+
+{% csrf_token %}
+
+<label>Name</label>
+<input class="w3-input" type="text" name="name" value="Your Name">
+
+<label>Address</label>
+<input class="w3-input" type="text" name="address" value="Contact Address"><br>
+
+<label>Phone</label>
+<input class="w3-input" type="text" name="phone" value="Phone No."><br>
+
+<label>Gender </label><br>
+
+<input class="w3-radio" type="radio" name="gender" value="male" checked>
+<label>Male</label>
+
+<input class="w3-radio" type="radio" name="gender" value="female">
+<label>Female</label>
+
+<input class="w3-radio" type="radio" name="gender" value="others">
+<label>Others</label><br><br>
+
+<label>Date Of Consultaion</label>
+<input class="w3-input" type="date" name="consulting_date">
+
+<label>History By Patient</label>
+<input class="w3-input" type="text" name="history" value="history">
+
+<label>Observations</label>
+<input class="w3-input" type="text" name="observations" value="observations">
+
+<label>Remedy</label>
+<input class="w3-input" type="text" name="remedy" value="remedy">
+
+<label>Next Consultaion</label>
+<input class="w3-input" type="date" name="next_consultation">
+
+<button class=" w3-btn w3-green w3-center-align">Register</button>
+<a href="/" class="w3-button w3-green">Go back to Home</a>
+
+</form>
+
+</div> 
+
+<div class="w3-footer w3-teal w3-center">
+!!! You are the healer. We are servents !!! </div>
+
+
+</BODY>
+
+</HTML>

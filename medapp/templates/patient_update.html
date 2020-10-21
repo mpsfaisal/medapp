@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+  <TITLE>UM-Update Patient Details</TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</HEAD>
+
+<BODY class="w3-container w3-auto" >
+
+<div class="w3-header w3-teal w3-center w3-large">
+   <h2>UYIR-MEI Theraphy Centre</h2>
+</div>
+
+<div class="w3-card-4">
+
+<div class="w3-container w3-green">
+  <h2>Update Patient Details</h2>
+</div>
+
+
+<form class="w3-container" action="/update/{{myresult.id}}/" method="post" target="_blank">
+
+{% csrf_token %}
+
+Patient Id : {{myresult.id}}<br>
+<label>Name</label>
+<input class="w3-input" type="text" name="name" value={{myresult.name}}>
+
+<label>Address</label>
+<input class="w3-input" type="text" name="Address" value="{{myresult.address}}"><br>
+
+<label>Phone</label>
+<input class="w3-input" type="text" name="phone" value="{{myresult.phone}}"><br>
+
+<label>Gender </label><br>
+{% if myresult.gender == 'M' or myresult.gender == 'male'  %}
+<input class="w3-radio" type="radio" name="gender" value="male" checked >
+<label>Male</label>
+{% else %}
+<input class="w3-radio" type="radio" name="gender" value="male" >
+<label>Male</label>
+{% endif %}
+
+{% if myresult.gender == 'F' or myresult.gender == 'female' %}
+<input class="w3-radio" type="radio" name="gender" value="female" checked >
+<label>Female</label>
+{% else %}
+<input class="w3-radio" type="radio" name="gender" value="female" >
+<label>Female</label>
+{% endif %}
+
+{% if myresult.gender == 'O' or myresult.gender == 'others' %}
+<input class="w3-radio" type="radio" name="gender" value="others" checked >
+<label>Others</label><br>
+{% else %}
+<input class="w3-radio" type="radio" name="gender" value="others" >
+<label>Others</label><br>
+{% endif %}
+
+
+
+<label>Date Of Consultaion</label>
+<input class="w3-input" type="date" name="consulting_date" value="{{myresult.consulting_date}}">
+
+<label>History By Patient</label>
+<input class="w3-input" type="text" name="history" value="{{myresult.history}}">
+
+<label>Observations</label>
+<input class="w3-input" type="text" name="observations" value="{{myresult.observations}}">
+
+<label>Remedy</label>
+<input class="w3-input" type="text" name="remedy" value="{{myresult.remedy}}">
+
+<label>Next Consultaion</label>
+<input class="w3-input" type="date" name="next_consultation" value="{{myresult.next_consultation}}">
+
+<label>Entry_by</label>
+<input class="w3-input" type="text" name="entry_by" value="{{myresult.entry_by}}">
+
+<button class=" w3-btn w3-green w3-center-align">Update</button>
+<a href="/" class="w3-button w3-green">Go back to Home</a>
+
+</form>
+
+</div> 
+
+<div class="w3-footer w3-teal w3-center">
+!!! You are the healer. We are servents !!! </div>
+
+
+</BODY>
+
+</HTML>

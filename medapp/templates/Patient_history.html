@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+  <TITLE>UM-Patient History</TITLE>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</HEAD>
+
+<BODY class="w3-container w3-auto" >
+
+<div class="w3-header w3-teal w3-center w3-large">
+   <h2>UYIR-MEI Theraphy Centre</h2>
+</div>
+
+<div class="w3-card-4">
+
+<div class="w3-container w3-green">
+  <h2>Patient History</h2> </div>
+
+
+<input class="w3-input w3-border w3-padding" type="text" placeholder="Search for names" id="myInput" onkeyup="myFunction()">
+
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+
+<!--<div class="w3-container ">
+  <form class="w3-card-4 w3-auto django-form" method="POST" action="{% url 'medapp:index' %}">
+    {% csrf_token %}
+  
+    {% for item in myresult %}
+      {{ item.name }}
+      {{ item.history }}
+      {{ item.remedy }}
+
+    {% endfor %}
+
+  <input class="w3-button w3-green" type="submit" value="Update">
+  </form>
+  
+  </div>
+-->
+
+<div class="table-container">
+<table class="tablewidth" id=myTable>
+<tr>
+<th>Reg.No</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Address</th>
+<th>Gender</th>
+<th>Consulted Date</th>
+<th>History By Patient</th>
+<th>Observations</th>
+<th>Remedy</th>
+<th>Next Consultaion</th>
+<th>Entry_By</th>
+<th>For_Update</th>
+</tr>
+
+{% for x in myresult %}
+<tr>
+
+     <td>{{x.id}}</td>
+     <td>{{x.name}}</td>
+     <td>{{x.phone}}</td>
+     <td>{{x.address}}</td>
+     <td>{{x.gender}}</td>
+     <td>{{x.consulting_date}}</td>
+     <td>{{x.history}}</td>
+     <td>{{x.observations}}</td>
+     <td>{{x.remedy}}</td>
+     <td>{{x.next_consultation}}</td>
+     <td>{{x.entry_by}}</td>
+     <td><a href="/patient_update/{{x.id}}" class="w3-button w3-green">Update</a></td>
+     
+  
+
+</tr>
+
+{% endfor %}
+
+</table>
+</div>
+
+
+<br>
+<div class="w3-container w3-center">
+{% if is_paginated %}
+  {% if page_obj.has_previous %}
+   <a class= "w3-button w3-green w3-auto" href="?page=1">First</a>
+   <a class= "w3-button w3-green w3-auto" href="?page={{ page_obj.previous_page_number}}">Previous</a>
+  {% endif %}
+
+  {% if page_obj.has_next %}
+   <a class= "w3-button w3-green w3-auto" href="?page={{ page_obj.next_page_number}}">Next</a>
+   <a class= "w3-button w3-green w3-auto" href="?page={{ page_obj.paginator.num_pages}}">Last</a>
+  {% endif %}
+
+{% endif %}
+</div>
+<br><br>
+
+<a href="/" class="w3-button w3-green">Go back to Home</a>
+
+</div>
+
+<div class="w3-footer w3-teal w3-center">!!! You are the healer. We are servents !!! </div>
+
+
+</BODY>
+
+</HTML>
+

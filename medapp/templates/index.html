@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="w3-card-4">
+
+<div class="w3-container w3-green">
+  <h2>Dash Board</h2>
+</div>
+
+<br>
+
+
+<div>
+<a href="new_patient_registor" class="w3-button w3-green">New Patient Registor</a>
+<a href="Patient_history" class="w3-button w3-green">Patients Details</a>
+</div> 
+<br>
+<div class="w3-container ">
+<form class="w3-card-4 w3-auto django-form" method="POST" action="{% url 'medapp:index' %}">
+  {% csrf_token %}
+
+  {{form}}
+<input class="w3-button w3-green" type="submit" value="Registor">
+</form>
+
+</div>
+<br>
+
+
+
+
+{% endblock %}
