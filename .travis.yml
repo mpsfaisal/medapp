@@ -14,7 +14,6 @@ services:
 install:
     - pipenv install
     - pip install -q Django==3.1.1
-    - python setup.py -q install
 
 script:
     - pipenv run pip list
